@@ -8,7 +8,7 @@ from xvfbwrapper import Xvfb
 
 
 def main():
-    with Xvfb():
+    with Xvfb(width=1280, height=2000):
         driver = webdriver.Firefox()
         driver.get('https://tw.yahoo.com')
         driver.save_screenshot('screenshot.png')
