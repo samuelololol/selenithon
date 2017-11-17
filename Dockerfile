@@ -14,6 +14,6 @@ RUN apt-get autoremove -y &&\
     apt-get clean &&\
     rm -rf /var/lib/apt-lists/*
 ADD entry_point.sh /entry_point.sh
-ENTRYPOINT ["/entry_point.sh"]
 WORKDIR /app
+ENTRYPOINT ["/entry_point.sh"]
 CMD ["python"]

@@ -20,7 +20,8 @@ SERVERNUM=$(get_server_num)
 rm -f /tmp/.X*lock
 
 # enable virtualenvwrapper
-source "/usr/local/bin/virtualenvwrapper.sh" && echo "enable virtualenvwrapper"
+source "/usr/local/bin/virtualenvwrapper.sh" > /dev/null 2>&1
+echo "enable virtualenvwrapper"
 
 # collect env variables
 NAME=$(grep -o -P "(?<=VIRTUAL_ENV=\"\/home\/)\w.+(?=\/\.)" /root/.virtualenvs/env/bin/activate)
@@ -37,7 +38,7 @@ sed -i -e's@\.virtualenvs\/'"$HOSTENVNAME"'@\.virtualenvs\/env@g' /root/.virtual
 
 # use env
 workon env
-which python
+echo python: $(which python)
 
 xvfb-run -n $SERVERNUM --server-args="-screen 0 $GEOMETRY -ac +extension RANDR" \
   java ${JAVA_OPTS} -jar /opt/selenium/selenium-server-standalone.jar \
