@@ -6,8 +6,8 @@ USER root
 RUN mkdir -p /app
 WORKDIR /app
 RUN apt-get update
-RUN apt-get install -y python-dev python-pip xvfb python-sklearn \
-            libgtk-3-0 libgtk-3-common libdbus-glib-1-dev xvfb\
+RUN apt-get install -y python-dev python-pip python-sklearn \
+            libgtk-3-0 libgtk-3-common libdbus-glib-1-dev dbus-x11 xvfb \
             python-pyaudio sox portaudio19-dev libatlas-base-dev \
             postgresql postgresql-contrib libpq-dev
 RUN pip install --upgrade pip
