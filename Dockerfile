@@ -12,7 +12,7 @@ RUN apt-get install -y python-dev python-pip xvfb python-sklearn \
             postgresql postgresql-contrib libpq-dev
 RUN pip install --upgrade pip
 RUN pip install xvfbwrapper pyvirtualdisplay\
-                selenium selenium-requests requests\
+                selenium selenium-requests six requests\
                 virtualenv virtualenvwrapper \
                 lxml BeautifulSoup \
                 pyaudio matplotlib numpy scipy \
