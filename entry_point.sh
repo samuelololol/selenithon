@@ -2,7 +2,6 @@
 #
 # IMPORTANT: Change this file only in directory Standalone!
 
-
 rm -f /tmp/.X*lock
 
 # enable virtualenvwrapper
@@ -56,4 +55,5 @@ sed -i -e 's@VIRTUAL_ENV="\/root@VIRTUAL_ENV="'"$HOSTHOMEPATH"'@g' /root/.virtua
 sed -i -e 's@\/root@'"$HOSTHOMEPATH"'@g' /root/.virtualenvs/env/bin/pip
 sed -i -e 's@\.virtualenvs\/env@\.virtualenvs\/'"$HOSTENVNAME"'@g' /root/.virtualenvs/env/bin/activate
 sed -i -e 's@\.virtualenvs\/env@\.virtualenvs\/'"$HOSTENVNAME"'@g' /root/.virtualenvs/env/bin/pip
+chown ${USER_ID}:${USER_ID} /app/*
 echo "clean up, quit"
