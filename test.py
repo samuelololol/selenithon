@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # __date__ = 'Nov 17, 2017 '
 # __author__ = 'samuel'
-from selenium import webdriver
+# from selenium import webdriver
 from seleniumrequests import Firefox
 from xvfbwrapper import Xvfb
 

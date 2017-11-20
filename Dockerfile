@@ -1,4 +1,3 @@
-#FROM selenium/standalone-firefox
 FROM samuelololol/docker-selenium
 MAINTAINER samuelololol <samuelololol@gmail.com>
 ENV VER=0.19.1
@@ -7,13 +6,17 @@ USER root
 RUN mkdir -p /app
 WORKDIR /app
 RUN apt-get update
-RUN apt-get install -y python-dev python-pip xvfb\
-            libgtk-3-0 libgtk-3-common libdbus-glib-1-dev
+RUN apt-get install -y python-dev python-pip xvfb python-sklearn \
+            libgtk-3-0 libgtk-3-common libdbus-glib-1-dev xvfb\
+            python-pyaudio sox portaudio19-dev libatlas-base-dev \
+            postgresql postgresql-contrib libpq-dev
 RUN pip install --upgrade pip
 RUN pip install xvfbwrapper pyvirtualdisplay\
                 selenium selenium-requests requests\
                 virtualenv virtualenvwrapper \
-                lxml BeautifulSoup
+                lxml BeautifulSoup \
+                pyaudio matplotlib numpy scipy \
+                pytest
 RUN cd /app; \
     LINK_PREFIX="https://github.com/mozilla/geckodriver/releases/download"; \
     wget $LINK_PREFIX"/v"$VER"/geckodriver-v"$VER"-linux64.tar.gz"
