@@ -1,7 +1,8 @@
 FROM samuelololol/docker-selenium
 MAINTAINER samuelololol <samuelololol@gmail.com>
-ENV VER=0.19.1
+ENV VER=v0.19.1
 #VER=$(wget -O - https://github.com/mozilla/geckodriver/releases/latest 2>/dev/null | grep "Release v"  | awk -F "Release v" '{print $2}' | awk -F " " '{print $1}'); \
+#VER=$(curl -sL \\n https://api.github.com/repos/mozilla/geckodriver/releases/latest | grep tag_name | cut -d '"' -f 4'"')
 USER root
 RUN mkdir -p /app
 WORKDIR /app
@@ -19,7 +20,7 @@ RUN pip install xvfbwrapper pyvirtualdisplay\
                 pytest
 RUN cd /app; \
     LINK_PREFIX="https://github.com/mozilla/geckodriver/releases/download"; \
-    wget $LINK_PREFIX"/v"$VER"/geckodriver-v"$VER"-linux64.tar.gz"
+    wget $LINK_PREFIX"/"$VER"/geckodriver-v"$VER"-linux64.tar.gz"
 RUN cd /app; \
     tar zxf geckodriver*; \
     chmod +x geckodriver; chown root.root geckodriver; mv geckodriver /usr/local/bin; \
