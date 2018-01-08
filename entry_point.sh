@@ -37,4 +37,4 @@ NODE_PID=$!
 
 #clean up
 #rm -rf geckodriver.log
-[[ -n "$USER_ID"  ]] && chown -r ${USER_ID}:${USER_ID} /app/*
+[[ -n "$USER_ID"  ]] && chown -R ${USER_ID}:${USER_ID} /app/*
