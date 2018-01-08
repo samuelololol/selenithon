@@ -27,7 +27,7 @@ RUN cd /app; \
 RUN apt-get autoremove -y &&\
     apt-get clean &&\
     rm -rf /var/lib/apt-lists/*
-ENTRYPOINT ["/entry_point.sh"]
 WORKDIR /app
+ENTRYPOINT ["/entry_point.sh"]
 CMD ["--version"]
 ADD entry_point.sh /entry_point.sh
