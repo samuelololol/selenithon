@@ -20,7 +20,7 @@ RUN pip install xvfbwrapper pyvirtualdisplay\
                 pytest
 RUN cd /app; \
     LINK_PREFIX="https://github.com/mozilla/geckodriver/releases/download"; \
-    wget $LINK_PREFIX"/"$VER"/geckodriver-v"$VER"-linux64.tar.gz"
+    wget $LINK_PREFIX"/"$VER"/geckodriver-"$VER"-linux64.tar.gz"
 RUN cd /app; \
     tar zxf geckodriver*; \
     chmod +x geckodriver; chown root.root geckodriver; mv geckodriver /usr/local/bin; \
