@@ -9,6 +9,12 @@ export DISPLAY=:99
 if [[ "$1" == "bash" ]]
 then
     ${@:2}
+elif [[ "$1" == "ipython" ]]
+then
+    source /root/.virtualenvs/env/bin/activate
+    pip3 install -r /app/requirements.txt
+    pip3 install ipython
+    ipython
 else
     source /root/.virtualenvs/env/bin/activate
     pip3 install -r /app/requirements.txt
